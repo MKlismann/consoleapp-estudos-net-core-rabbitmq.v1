@@ -5,6 +5,8 @@ using consoleapp_estudos_net_core_rabbitmq.v1.Domain.Interfaces.Services.Command
 using consoleapp_estudos_net_core_rabbitmq.v1.Domain.Interfaces.Services.Queries;
 using consoleapp_estudos_net_core_rabbitmq.v1.Domain.Resources;
 using consoleapp_estudos_net_core_rabbitmq.v1.Infra.Queues.RabbitMq;
+using consoleapp_estudos_net_core_rabbitmq.v1.Services.Commands;
+using consoleapp_estudos_net_core_rabbitmq.v1.Services.Queries;
 using System;
 
 namespace consoleapp_estudos_net_core_rabbitmq.v1
@@ -33,14 +35,14 @@ namespace consoleapp_estudos_net_core_rabbitmq.v1
                 EventViewerUtil.ConfiguraEventViewer();
 
                 /* TESTE DE INCLUSÃO DE MENSAGEM NA FILA */
-                //_includeRegionNorthwindEventCommand = new IncludeRegionNorthwindEventCommand(_rabbitMqInfra);
-                //_includeRegionNorthwindEventCommand.Handle();
+                _includeRegionNorthwindEventCommand = new IncludeRegionNorthwindEventCommand(_rabbitMqInfra);
+                _includeRegionNorthwindEventCommand.Handle();
 
                 /* TESTE DE CONSUMO DE UMA MENSAGEM DA FILA */
-                //_getRegionNorthwindEventQuery = new GetRegionNorthwindEventQuery(_rabbitMqInfra);
-                //_getRegionNorthwindEventQuery.Handle();
+                _getRegionNorthwindEventQuery = new GetRegionNorthwindEventQuery(_rabbitMqInfra);
+                _getRegionNorthwindEventQuery.Handle();
 
-                /* TESTE DE CONSUMO DE TODAS AS MENSAGEM DA FILA */
+                ///* TESTE DE CONSUMO DE TODAS AS MENSAGEM DA FILA */
                 //_consumeRegionNorthwindEventQuery = new ConsumeRegionNorthwindEventQuery(_rabbitMqInfra);
                 //_consumeRegionNorthwindEventQuery.Handle();
             }
