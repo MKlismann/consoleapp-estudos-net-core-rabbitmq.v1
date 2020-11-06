@@ -5,6 +5,7 @@ using consoleapp_estudos_net_core_rabbitmq.v1.Domain.Resources;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using System;
 using System.Text;
 
 namespace consoleapp_estudos_net_core_rabbitmq.v1.Infra.Queues.RabbitMq
@@ -100,8 +101,10 @@ namespace consoleapp_estudos_net_core_rabbitmq.v1.Infra.Queues.RabbitMq
             var connectionFactory = new ConnectionFactory
             {
                 HostName = RabbitMqConstants.RABBIT_MQ_HOST_NAME,
-                UserName = RabbitMqConstants.RABBIT_MQ_USER_NAME,
-                Password = RabbitMqConstants.RABBIT_MQ_PASSWORD
+                UserName = ConnectionFactory.DefaultUser,
+                Password = ConnectionFactory.DefaultPass,
+                Port = AmqpTcpEndpoint.UseDefaultPort,
+                Uri = RabbitMqConstants.RABBIT_MQ_CUSTOM_URI_AMQP
             };
 
             return connectionFactory.CreateConnection();

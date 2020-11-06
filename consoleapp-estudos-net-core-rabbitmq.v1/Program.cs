@@ -39,8 +39,8 @@ namespace consoleapp_estudos_net_core_rabbitmq.v1
                 _includeRegionNorthwindEventCommand.Handle();
 
                 /* TESTE DE CONSUMO DE UMA MENSAGEM DA FILA */
-                _getRegionNorthwindEventQuery = new GetRegionNorthwindEventQuery(_rabbitMqInfra);
-                _getRegionNorthwindEventQuery.Handle();
+                //_getRegionNorthwindEventQuery = new GetRegionNorthwindEventQuery(_rabbitMqInfra);
+                //_getRegionNorthwindEventQuery.Handle();
 
                 ///* TESTE DE CONSUMO DE TODAS AS MENSAGEM DA FILA */
                 //_consumeRegionNorthwindEventQuery = new ConsumeRegionNorthwindEventQuery(_rabbitMqInfra);
